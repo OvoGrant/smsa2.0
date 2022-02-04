@@ -1,3 +1,5 @@
+
+
 export const NavBar = (props) => {
 
     return(
@@ -23,6 +25,7 @@ export const NavBar = (props) => {
                     </li>
                 </ul>
             </nav>
+        
         </header>
     );
 }

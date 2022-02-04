@@ -8,6 +8,10 @@ app.use(express.json());
 // get driver connection
 const dbo = require("./db/conn");
  
+
+
+
+
 app.listen(port, () => {
   // perform a database connection when server starts
   dbo.connectToServer(function (err) {
