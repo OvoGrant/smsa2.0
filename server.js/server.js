@@ -1,5 +1,6 @@
 const express = require('express')
 
-const app = express();
+const app = express()
 
-app.listen(3000,()=>{console.log("listenting")})
+app.get('/',(req,res)=>{res.send("hello World")})
+app.listen(3000,()=>{console.log("Hello World")})
