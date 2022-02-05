@@ -9,6 +9,15 @@ app.use(express.json());
 const dbo = require("./db/conn");
  
 
+app.get('/',(req,res)=>{
+    db_connect = dbo.getDb();
+    db_connect.
+    collection('Users')
+    .find({}).toArray(function (err, result){
+        if (err) throw err;
+        res.json(result)
+    })
+})
 
 
 
