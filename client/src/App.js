@@ -6,7 +6,7 @@ function App() {
   return (
     <div>
       <NavBar/>
-      <div className="flex">
+      <div style={{backgroundColor: "#F2F2F2"}} className="flex ">
         <SideBar/>
         <DashBoard/>
         </div> 
