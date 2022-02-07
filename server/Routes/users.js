@@ -1,32 +1,37 @@
 const express = require('express')
-const usersRouter = express.Router()
+const router = express.Router()
+const user = require('../Models/Users')
 
 
+router.get('/', async (req,res)=>{
+    try {
+        const subscribers  = await subscriber.find()
+        res.send(subscribers)
+    }catch(err){
+        console.log(error)
+    }
+})
 
-usersRouter.get('/',(req,res)=>{
+router.post('/',(req,res)=>{
 
 })
 
-usersRouter.post('/',(req,res)=>{
+router.get('/:id',(req,res)=> {
 
 })
 
-usersRouter.get('/:id',(req,res)=> {
+router.put('/:id',(req,res)=>{
 
 })
 
-usersRouter.put('/:id',(req,res)=>{
+router.delete('/:id',(req,res)=>{
 
 })
 
-usersRouter.delete('/:id',(req,res)=>{
-
-})
-
-usersRouter.get('/:id/holdings',(req,res) => {
+router.get('/:id/holdings',(req,res) => {
  
 })
 
 
 
-module.exports = usersRouter
+module.exports = router
