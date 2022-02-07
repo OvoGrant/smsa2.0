@@ -5,10 +5,12 @@ function App() {
  
   return (
     <div>
-      <NavBar/>
       <div style={{backgroundColor: "#F2F2F2"}} className="flex ">
         <SideBar/>
+        <div className='w-full flex-col'>
+        <NavBar/>
         <DashBoard/>
+        </div>
         </div> 
       </div>
   );

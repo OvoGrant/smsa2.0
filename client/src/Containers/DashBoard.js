@@ -6,8 +6,7 @@ export const DashBoard = (props) => {
 ,{name:'AAPL',subjectivity:1,polarity:1}]
     return (
         <div className="  border-gray-200 bg-white rounded-2xl border-2 mx-auto px-8 w-2/3 my-4">
-            <h1 className="text-center  text-2xl">Assets</h1>
-            <div className=" h-1/4 border-gray-300 text-center m-3 bg-gray-300"></div>
+            <div className=" h-full w-full border-gray-300 text-center m-3 bg-gray-300"></div>
             <form className="flex justify-center">
             <input type="text" className="w-1/2 h-6 text-center border bg-grey-50 border-black" defaultValue = 'Search All Assets'/>
             </form>

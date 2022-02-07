@@ -1,5 +1,5 @@
 export const LogoutButton = () => {
     return(
-        <button> Logout </button>
+        <button className="bg-green-700 text-white"> Logout </button>
     );
 }
