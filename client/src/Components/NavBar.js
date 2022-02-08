@@ -21,6 +21,9 @@ export const NavBar = (props) => {
                     <li>
                         GitHub
                     </li>
+                    <li> 
+                        <a href="/login">Login</a>
+                    </li>
                 </ul>
             </nav>
         </header>
