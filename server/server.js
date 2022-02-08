@@ -1,13 +1,9 @@
 require('dotenv').config()
 const express = require("express");
 const app = express()
-const mongoose = require('mongoose');
+
 
 const port = process.env.PORT || 5000;
-
-mongoose.connect(process.env.ATLAS_URI,{useNewUrlParser:true})
-const db =  mongoose.connection
-db.once('open', () => {console.log("hello word")});
 app.use(express.json());
 
 // get driver connection
