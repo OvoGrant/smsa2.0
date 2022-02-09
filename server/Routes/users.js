@@ -14,17 +14,22 @@ router.get('/:id',(req,res)=> {
 
 })
 
-router.put('/:id',(req,res)=>{
-
-})
 
 router.delete('/:id',(req,res)=>{
 
 })
 
-router.get('/:id/holdings',(req,res) => {
+router.get('/:id/inventory/:pId',(req,res) => {
  
 })
+
+router.post(('/:id/invetory/:item'),(req,res) => {
+
+})
+
+router.post(('/:id/inventory/:item'))
+
+
 
 
 
