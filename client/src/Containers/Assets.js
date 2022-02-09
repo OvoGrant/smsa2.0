@@ -1,6 +1,6 @@
 import {StockCard} from '../Components/StockCard'
 
-export const DashBoard = (props) => {
+export const Assets = (props) => {
 
     const holdings = [{name:'AAPL',subjectivity:1,polarity:1},{name:'AAPL',subjectivity:1,polarity:1},{name:'AAPL',subjectivity:1,polarity:1},{name:'AAPL',subjectivity:1,polarity:1}
 ,{name:'AAPL',subjectivity:1,polarity:1}]
