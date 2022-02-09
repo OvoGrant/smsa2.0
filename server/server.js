@@ -28,7 +28,9 @@ app.use('/users', usersRouter);
 app.use('/stocks',stocksRouter);
 
  
-
+app.get('/',(req,res)=>{
+  res.send("hell")
+})
 
 app.listen(port, () => {
   // perform a database connection when server starts

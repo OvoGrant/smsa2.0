@@ -1,5 +1,5 @@
 import { LogoutButton } from "./LogoutButton";
-import { LoginButton } from "./LoginButton";
+import {LoginButton}  from "./LoginButton";
 export const NavBar = (props) => {
 
     return(
