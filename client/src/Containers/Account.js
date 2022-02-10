@@ -1,4 +1,5 @@
-export const Account = () => {
+export const Account = (props) => {
+    props.changeHeadding("Account");
     return(
         <div>Hello</div>
     )

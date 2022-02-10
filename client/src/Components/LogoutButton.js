@@ -1,5 +1,14 @@
-export const LogoutButton = () => {
-    return(
-        <a href="logout"><button className="bg-green-700 text-white"> Logout </button></a>
-    );
-}
+import React from "react";
+import { useAuth0 } from "@auth0/auth0-react";
+
+const LogoutButton = () => {
+  const { logout } = useAuth0();
+
+  return (
+    <button onClick={() => logout({ returnTo: window.location.origin })}>
+      Log Out
+    </button>
+  );
+};
+
+export default LogoutButton;
