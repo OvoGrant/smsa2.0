@@ -12,14 +12,19 @@ const AllStocks = (props) => {
     },[])
 
     
-
+    const handleChange = (e) => {
+        e.preventDefault();
+        const ass = allAssets.filter((asset) => asset.full_name.includes(e.target.value) || e.target.value === "Search")
+        console.log(ass)
+        setVisible(ass);
+    }
 
     return(
         <div className="flex gap-4 border-2 border-gray-200 p-4">
             
             <div className=" items-center flex-col w-7/12" >
             <form className="flex justify-start" >
-                <input  className="w-96 caret-green-500 border-2 border-gray-200 p-4 mb-4" type="text" defaultValue="Search"/>
+                <input  onChange={handleChange} className="w-96 caret-green-500 border-2 border-gray-200 p-4 mb-4" type="text" defaultValue="Search"/>
             </form>
             <ul className="flex justify-between">
                 <li className="">Name</li>
