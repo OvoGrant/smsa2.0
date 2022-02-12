@@ -11,6 +11,9 @@ ReactDOM.render(
     domain="dev-sjme0iun.us.auth0.com"
     clientId="8ORpcipdePSFGeQujQ8U4L9LkMJXsv0J"
     redirectUri={window.location.origin}
+    audience='http://localhost:5000'
+    scopes="openid profile email"
+
   >
       <App />
       </Auth0Provider>

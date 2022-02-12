@@ -4,7 +4,7 @@ const router = express.Router()
 const db = require('../db')
 
 
-router.get('/',(req,res)=>{
+router.get('/', async (req,res)=>{
     const results = await pool.query
 })
 

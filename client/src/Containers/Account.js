@@ -1,6 +1,8 @@
 export const Account = (props) => {
     props.changeHeadding("Account");
     return(
-        <div>Hello</div>
+        <div className="border-2 border-gray ">
+            
+        </div>
     )
 }

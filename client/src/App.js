@@ -6,9 +6,12 @@ import {Account} from './Containers/Account'
 import {SideBar} from './Components/SideBar';
 import {Routes,Route} from 'react-router-dom'
 import {useState} from 'react'
+import {useAuth0}  from '@auth0/auth0-react';
 function App() {
   
   const [heading , setHeading] = useState(window.location.pathname.split('/'))
+  const {isAuthenticated} = useAuth0()
+
 
   const handleChange = (value) => {
     setHeading(value)

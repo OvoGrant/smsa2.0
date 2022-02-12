@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom'
 
 export const SideBar = () => {
     return(
+
         <nav className="fixed w-52 hidden md:block h-full flex-col top-0 z-2  border-2 border-gray-100">
 
                 <h1 className="text-xl text-left ml-6 mt-4 font-semibold text-green-700">Puffin</h1>

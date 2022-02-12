@@ -2,10 +2,24 @@ require('dotenv').config()
 const express = require("express");
 const app = express()
 const cors = require("cors")
+const jwt = require('express-jwt')
+const jwks  = require('jwks-rsa')
 
+var jwtCheck = jwt({
+  secret: jwks.expressJwtSecret({
+      cache: true,
+      rateLimit: true,
+      jwksRequestsPerMinute: 5,
+      jwksUri: 'https://dev-sjme0iun.us.auth0.com/.well-known/jwks.json'
+}),
+audience: 'http://localhost:5000',
+issuer: 'https://dev-sjme0iun.us.auth0.com/',
+algorithms: ['RS256']
+}).unless({path:['/stocks']});
 
 const port = process.env.PORT || 5000;
 
+app.use(jwtCheck)
 app.use(express.json());
 app.use(cors())
 // get driver connection
@@ -18,7 +32,7 @@ app.use('/users', usersRouter);
 app.use('/stocks',stocksRouter);
 app.use('/inventory',inventoryRouter);
 app.use('/nlp',nlpRouter)
-app.user('/items',itemsRouter)
+app.use('/items',itemsRouter)
 
 
 app.listen(port, () => {
