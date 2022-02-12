@@ -4,7 +4,7 @@ export const NavBar = (props) => {
 
     return(
         <header className="flex fixed z-10 bg-white top-0 h-16 border-b-2 border-gray-100 w-full">
-            <nav className="ml-52 flex justify-between h-full w-10/12">
+            <nav className="ml-0 md:ml-52 flex justify-between h-full w-10/12">
             <h1 className="font-semibold font-48 mx-2 self-center  ">{props.heading}</h1>
 
             <ul className="flex gap-6 self-center">
