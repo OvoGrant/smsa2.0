@@ -20,7 +20,7 @@ function App() {
     <div>
     <NavBar heading={heading}/>
     <SideBar/>
-    <main className="relative top-16 left-64 ml-2 mt-4 w-10/12 ">
+    <main className="relative ml-8 text-center top-16 md:left-64 md:ml-2 mt-4 w-10/12 ">
     <Routes>
         <Route path="/Account" element={<Account changeHeadding={handleChange}/>}/>
         <Route path="/Assets" element={<Assets  changeHeadding={handleChange}/>}/>
