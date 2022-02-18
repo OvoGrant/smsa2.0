@@ -8,10 +8,10 @@ ReactDOM.render(
   <React.StrictMode>
     <Router>
      <Auth0Provider
-    domain={process.env.Domain}
-    clientId={process.env.CLIENT_ID}
+    domain={process.env.REACT_APP_Domain}
+    clientId={process.env.REACT_APP_CLIENT_ID}
     redirectUri={window.location.origin}
-    audience={process.env.Audience}
+    audience={process.env.REACT_APP_Audience}
     scopes="openid profile email"
 
   >
