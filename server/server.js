@@ -25,14 +25,12 @@ app.use(cors())
 // get driver connection
 const usersRouter = require('./Routes/users');
 const stocksRouter = require('./Routes/stocks');
-const itemsRouter = require('./Routes/items');
 const nlpRouter = require('./Routes/nlp')
 const inventoryRouter = require('./Routes/inventory')
 app.use('/users', usersRouter);
 app.use('/stocks',stocksRouter);
 app.use('/inventory',inventoryRouter);
-app.use('/nlp',nlpRouter)
-app.use('/items',itemsRouter)
+app.use('/nlp',nlpRouter);
 
 
 app.listen(port, () => {
