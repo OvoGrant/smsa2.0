@@ -14,17 +14,18 @@ router.get('/', async (req,res)=>{
 
 router.post('/', async (req,res)=>{
     const symbol = req.body.symbol
-    const compound = req.body.symbol
-    const date = req.body.date;
+    const compound = req.body.compound
+    const date = req.body.Date
+    const source = req.body.source
     try{
-        await pool.query(`INSERT INTO nlp (symbol, compound, date) VALUES('${symbol}','${compound}','${date}');`)
-        res.status(201).send("Good Job little guy")
+        await pool.query(`INSERT INTO nlp (symbol,compound, source, "Date") VALUES ('${symbol}','${compound}','${source}', '${date}');`);
+        res.status(201).send("Good Job little guy");
     }catch(err){
         res.status(404).send({message: err.message})
     }
 })
 
-router.get('/:stock_id/:start/:end',(req,res)=>{
+router.get('/:stock_id/:start/:end', async (req,res)=>{
     const stock = req.stock_id;
     const start = req.body.start;
     const end = req.body.end;

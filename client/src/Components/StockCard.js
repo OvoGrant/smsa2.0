@@ -13,7 +13,7 @@ export const StockCard = (props) => {
             <h1 className={titleStyle}> {props.name}</h1>
             <h1 className="font-medium my-1">Apple Inc</h1>
             <ul className="flex-col gap-2 font-semibold mt-3">
-                <li> Subjectivity: {props.subjectivity}</li>
+                <li> Subjectivity: {props.compound}</li>
                 <li> Sentiment: {props.polarity}</li>
                 <li> Twitter: Bullish</li>
                 <li> Reddit: Bearish</li>

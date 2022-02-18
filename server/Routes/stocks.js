@@ -13,12 +13,12 @@ router.post('/', async (req,res)=>{
     const full_name = req.body.full_name;
     const country = req.body.country;
     const city = req.body.city;
-    const queryString = `INSERT INTO (symbol,full_name,country,city) VALUES (${symbol},${full_name},${country},${city})`;
+    const queryString = `INSERT INTO stocks (symbol,full_name,country,city) VALUES ('${symbol}','${full_name}','${country}','${city}')`;
     try{
-       const res =  await pool.query(queryString)
-       res.status(201).send("created")
+       await pool.query(queryString)
+       res.status(201).send("created");
     }catch(err){
-        res.status(500).json({message: err.message})
+        res.status(500).json({message: err.message});
     }
 })
 
