@@ -10,7 +10,7 @@ ReactDOM.render(
      <Auth0Provider
     domain={process.env.REACT_APP_DOMAIN}
     clientId={process.env.REACT_APP_CLIENT_ID}
-    redirectUri="https://pufffinance.com/Assets"
+    redirectUri="https://pufffinance.com/"
     audience="http://localhost:5000"
     scopes="openid profile email"
 
