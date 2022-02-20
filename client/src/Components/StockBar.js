@@ -7,9 +7,10 @@ export const StockBar = (props) => {
     
     const handleClick = () => {
         if(isAuthenticated) { 
-            axios.post('http://localhost:5000/watchlist/',{
-                        user_id:5,
-                        symbol:props.symbol
+            const id = Number(user.sub.split("|")[1])
+            axios.post(`http://${REACT_APP_API_ENDPOINT}/watchlist/`,{
+                user_id: id,
+                symbol:props.symbol
             })
             .then(function(response){
                 console.log(response);

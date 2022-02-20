@@ -6,7 +6,7 @@ const AllStocks = (props) => {
     let [visible, setVisible] = useState([])
     useEffect(()=>{
         props.changeHeadding("All Stocks");
-        fetch("http://localhost:5000/stocks")
+        fetch(`http://${proccess.env.REACT_APP_API_ENDPOINT}/stocks`)
         .then( response => response.json())
         .then( data => setAssets(data));
     },[])
