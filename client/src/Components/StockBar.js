@@ -8,7 +8,7 @@ export const StockBar = (props) => {
     const handleClick = () => {
         if(isAuthenticated) { 
             const id = Number(user.sub.split("|")[1])
-            axios.post(`http://${REACT_APP_API_ENDPOINT}/watchlist/`,{
+            axios.post(`http://${process.env.REACT_APP_API_ENDPOINT}/watchlist/`,{
                 user_id: id,
                 symbol:props.symbol
             })

@@ -11,7 +11,7 @@ export const Assets = (props) => {
     useEffect(() => {
      if(isAuthenticated){
         const id = Number(user.sub.split("|")[1]);
-        axios.get(`http://localhost:5000/watchlist/${id}`)
+        axios.get(`http://${process.env.REACT_APP_API_ENDPOINT}:5000/watchlist/${id}`)
         .then((response)=>{
             setWatchlist(response.data);
             console.log(response.data)
