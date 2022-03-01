@@ -1,7 +1,6 @@
 import {NavBar} from './Components/NavBar';
 import {Assets} from './Containers/Assets';
 import AllStocks from './Containers/AllStocks';
-import {Account} from './Containers/Account'
 import {SideBar} from './Components/SideBar';
 import {Routes,Route} from 'react-router-dom'
 import {useState} from 'react'
