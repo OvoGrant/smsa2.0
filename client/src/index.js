@@ -7,13 +7,10 @@ import { Auth0Provider } from "@auth0/auth0-react";
 ReactDOM.render(
   <React.StrictMode>
     <Router>
-     <Auth0Provider
-    domain={process.env.REACT_APP_DOMAIN}
-    clientId={process.env.REACT_APP_CLIENT_ID}
-    redirectUri={process.env.REACT_APP_REDIRECT_URI}
-    audience="http://localhost:5000"
-    scopes="openid profile email"
-
+    <Auth0Provider
+    domain="dev-59im854i.us.auth0.com"
+    clientId="GzpsUZXzo8mFP3rdGscoUInnFCBlF3xk"
+    redirectUri={window.location.origin}
   >
       <App />
       </Auth0Provider>

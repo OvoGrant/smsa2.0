@@ -7,9 +7,11 @@ export const StockBar = (props) => {
     
     const handleClick = () => {
         if(isAuthenticated) { 
-            axios.post('http://localhost:5000/watchlist/',{
-                        user_id:5,
-                        symbol:props.symbol
+            const id = user.sub
+            console.log(id)
+            axios.post('http://137.184.224.203:5000/watchlist/',{
+                user_id: id,
+                symbol:props.symbol
             })
             .then(function(response){
                 console.log(response);

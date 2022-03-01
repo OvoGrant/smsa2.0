@@ -6,9 +6,10 @@ const AllStocks = (props) => {
     let [visible, setVisible] = useState([])
     useEffect(()=>{
         props.changeHeadding("All Stocks");
-        fetch("http://localhost:5000/stocks")
+        fetch("http://137.184.224.203:5000/stocks")
         .then( response => response.json())
         .then( data => setAssets(data));
+        
     },[])
 
     

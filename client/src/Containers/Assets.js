@@ -1,33 +1,47 @@
 import {StockCard} from '../Components/StockCard'
 import axios from "axios";
+import { useAuth0 } from '@auth0/auth0-react';
+import {Modal} from '../Components/Modal'
 import {useEffect,useState} from 'react';
 export const Assets = (props) => {
 
 
     const [watchlist,setWatchlist] = useState([]);
+    const {isAuthenticated,user} = useAuth0();
+    const [visible,setVisible] = useState(true)
+    const [modalTopic,setModalTopic] = useState("")
 
+    const showModal = (symbol=" ", vis=false) => {
+        setVisible(vis)
+        setModalTopic(symbol)
+        console.log(visible)
+        console.log("Hello")
+    }
 
     useEffect(() => {
-        axios.get(`http://localhost:5000/watchlist/${5}`)
-        .then((response)=>{
-            setWatchlist(response.data);
+     if(isAuthenticated){
+
+        const id = user.sub;
+        const endpoint = 'http://137.184.224.203:5000/watchlist/'+id;
+        fetch(endpoint)
+        .then((response)=> response.json())
+        .then((result)=> setWatchlist(result))
+        .catch((err)=>{
+            console.log(err)
         })
-        .catch((error)=>{
-            console.log(error.message);
-        })
+     
+    }else{
+
+     }
     },[])
-
-
-
-    props.changeHeadding("Assets");
     return (
-        <div>
-            <div className="w-10/12 rounded-md h-72 border-2 border-slate-400 mt-12 mb-6 mx-auto"></div>
+         <div>
             <form className="flex justify-center">
             </form>
+            {watchlist.length > 0 ?
             <ul className="flex flex-wrap justify-center">
-                {watchlist.map((stock,index)=> <StockCard key={index} name={stock.name}/> )}
-            </ul>
+                {watchlist.map((stock,index)=> <StockCard key={index} symbol={stock.symbol} onClick={showModal} /> )}
+            </ul> : <h1>loading</h1>}
         </div>
     );
 }

@@ -1,22 +1,38 @@
-import {getColor} from './color'
+import axios from 'axios';
+import { useEffect ,useState} from 'react';
 export const StockCard = (props) => {
-
     
-    const cardStyle = `border-2 w-48 h-48 my-4 mx-2 rounded-xl flex p-2 hover:border-4  hover:border-gray-400/25`;
-    const color = getColor()
-    console.log(color)
-    const titleStyle = `text-center text-sm w-16 font-semibold text-white bg-black border-2 rounded-lg`;
-    console.log(titleStyle)
+    const [value,setValue] = useState("")
+    const [metaData,setMetaData] = useState({})
+
+    const handleClick = () =>{
+        props.onClick(props.symbol,true)
+    }
+
+
+    useEffect( async ()=>{
+        try{
+        const response = await fetch(`http://137.184.224.203:5000/nlp/${props.symbol}`)
+        const respons2 = await fetch(`http://137.184.224.203:5000/stocks/${props.symbol}`)
+        const data = await response.json()
+        const stock_info = await respons2.json()
+        console.log(stock_info)
+        console.log(data)
+        setMetaData(stock_info[0])
+        setValue(data[0].compound)
+        }catch(err){
+            console.log(err)
+        }
+    },[])
+    const cardStyle = `border-2 w-48 h-48 my-4 mx-2 rounded-xl cursor-pointer flex p-2 hover:border-4  hover:border-gray-400/25`;
+    const titleStyle =`text-center text-sm w-16 font-semibold text-white bg-red-600 border-2 rounded-lg`;
     return(  
-        <div className={cardStyle}> 
+        <div className={cardStyle} onClick={handleClick}> 
         <li>
-            <h1 className={titleStyle}> {props.name}</h1>
-            <h1 className="font-medium my-1">Apple Inc</h1>
-            <ul className="flex-col gap-2 font-semibold mt-3">
-                <li> Subjectivity: {props.compound}</li>
-                <li> Sentiment: {props.polarity}</li>
-                <li> Twitter: Bullish</li>
-                <li> Reddit: Bearish</li>
+            <h1 className='text-center text-sm w-16 font-semibold text-white bg-red-600 border-2 rounded-lg'>{metaData.symbol}</h1>
+            <h1 className="text-sm font-semibold text-left my-1 ">{metaData.full_name}</h1>
+            <ul className="flex-col gap-2 text-sm mt-3">
+                <li className="text-left">Sentiment<br/>{value}</li>
             </ul>
         </li>
         </div>

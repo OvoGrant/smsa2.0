@@ -22,7 +22,6 @@ function App() {
     <SideBar/>
     <main className="relative ml-8 text-center top-16 md:left-64 md:ml-2 mt-4 w-10/12 ">
     <Routes>
-        <Route path="/Account" element={<Account changeHeadding={handleChange}/>}/>
         <Route path="/Assets" element={<Assets  changeHeadding={handleChange}/>}/>
         <Route path="/AllStocks" element={<AllStocks  changeHeadding={handleChange}/>}/>
     </Routes>
