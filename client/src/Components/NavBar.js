@@ -12,7 +12,6 @@ export const NavBar = (props) => {
             <h1 className="font-semibold font-48 mx-2 self-center  ">{props.heading}</h1>
 
             <ul className="flex gap-6 self-center">
-                <li className="border-2 bg-green-500 text-black font-semibold border-black rounded p-2">Buy/Sell</li>
                 <li>{isAuthenticated ? <LogoutButton/> : <LoginButton/>}</li>
             </ul>
             </nav>

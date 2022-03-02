@@ -32,10 +32,6 @@ export const StockBar = (props) => {
                 <li>{props.fullname}</li>
                 </ul>
                 <div className="flex gap-6 ml-8">
-                <p>Twitter</p>
-                <p>Reddit</p>
-                <p>News</p>
-                <p className="">$45.67</p>
                 <button onClick={handleClick}><FaPlusCircle/></button>
                 </div>
             </div>

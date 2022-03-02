@@ -1,15 +1,34 @@
 import {useEffect, useState} from 'react'
 import {StockBar} from '../Components/StockBar'
+import axios from 'axios'
+import NewsBar from '../Components/NewsBar'
 const AllStocks = (props) => {
 
+    
+    const options = {
+        method: 'GET',
+        url: 'https://free-news.p.rapidapi.com/v1/search',
+        params: {q:'stock market', lang: 'en', page: '1', page_size: '25'},
+        headers: {
+          'x-rapidapi-key': '385b024a03msh25fa0d913b47b7ap1fc445jsn64b358f9cb47',
+          'x-rapidapi-host': 'free-news.p.rapidapi.com'
+        }
+      };
+
+
     let [allAssets , setAssets] = useState([])
-    let [visible, setVisible] = useState([])
+    let [visible, setVisible] = useState(allAssets)
+    const [news,setNews] = useState([])
     useEffect(()=>{
         props.changeHeadding("All Stocks");
         fetch("http://137.184.224.203:5000/stocks")
         .then( response => response.json())
         .then( data => setAssets(data));
         
+        axios.request(options)
+        .then((response)=>{
+            setNews(response.data.articles)
+        })
     },[])
 
     
@@ -32,8 +51,6 @@ const AllStocks = (props) => {
             <ul className="flex justify-between">
                 <li className="ml-2">Name</li>
                 <div className="flex w-1/4 pr-14  justify-between">
-                <li className="ml-6 mr-6">Sentiment</li>
-                <li className="">Price</li>
                 </div>
             </ul>
             <div className=" flex-col items-center justify-center bg-white">
@@ -46,8 +63,10 @@ const AllStocks = (props) => {
             />)}
             </div>
             </div>
-            <div className="lg:border-2 lg:bg-white lg:w-5/12 hidden lg:block lg:border-gray-100">
-                Hello
+            <div className=" lg:bg-white lg:w-5/12 hidden lg:block ">
+                <ul>
+                    {news.map((item)=><NewsBar data={item}/>)}
+                </ul>
             </div>
         </div>
     )

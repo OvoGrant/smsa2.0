@@ -5,18 +5,17 @@ import {Modal} from '../Components/Modal'
 import {useEffect,useState} from 'react';
 export const Assets = (props) => {
 
-
     const [watchlist,setWatchlist] = useState([]);
     const {isAuthenticated,user} = useAuth0();
-    const [visible,setVisible] = useState(true)
+    const [visible,setVisible] = useState(false)
     const [modalTopic,setModalTopic] = useState("")
 
-    const showModal = (symbol=" ", vis=false) => {
-        setVisible(vis)
+    const showModal = (symbol="", vis=false) => {
         setModalTopic(symbol)
-        console.log(visible)
-        console.log("Hello")
+        setVisible(vis)
     }
+
+    
 
     useEffect(() => {
      if(isAuthenticated){
@@ -29,13 +28,18 @@ export const Assets = (props) => {
         .catch((err)=>{
             console.log(err)
         })
-     
+    
     }else{
 
      }
     },[])
     return (
          <div>
+             <Modal
+                visibility={visible}
+                symbol={modalTopic}
+                close={showModal}
+             />
             <form className="flex justify-center">
             </form>
             {watchlist.length > 0 ?

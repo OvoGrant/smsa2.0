@@ -1,14 +1,12 @@
 import axios from 'axios';
-import { useEffect ,useState} from 'react';
+import {useRef, useEffect ,useState} from 'react';
 export const StockCard = (props) => {
     
-    const [value,setValue] = useState("")
+    const [position,setPosition] = useState("BUY")
     const [metaData,setMetaData] = useState({})
-
     const handleClick = () =>{
         props.onClick(props.symbol,true)
     }
-
 
     useEffect( async ()=>{
         try{
@@ -16,10 +14,8 @@ export const StockCard = (props) => {
         const respons2 = await fetch(`http://137.184.224.203:5000/stocks/${props.symbol}`)
         const data = await response.json()
         const stock_info = await respons2.json()
-        console.log(stock_info)
-        console.log(data)
         setMetaData(stock_info[0])
-        setValue(data[0].compound)
+        setPosition(data[0].position)
         }catch(err){
             console.log(err)
         }
@@ -31,9 +27,11 @@ export const StockCard = (props) => {
         <li>
             <h1 className='text-center text-sm w-16 font-semibold text-white bg-red-600 border-2 rounded-lg'>{metaData.symbol}</h1>
             <h1 className="text-sm font-semibold text-left my-1 ">{metaData.full_name}</h1>
-            <ul className="flex-col gap-2 text-sm mt-3">
-                <li className="text-left">Sentiment<br/>{value}</li>
-            </ul>
+            <h2 className="text-left font-semibold mb-2">Public Opinion</h2>
+            <p className={position == "BUY" ? 
+                "text-left bg-green-600 text-white border-2 font-semibold border-green-600 text-center w-12 rounded-md" 
+                : "text-left bg-red-600 text-white border-2 font-semibold  border-red-600  text-center w-12 rounded-md"}
+                >{position}</p>
         </li>
         </div>
     );
