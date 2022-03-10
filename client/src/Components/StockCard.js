@@ -10,8 +10,8 @@ export const StockCard = (props) => {
 
     useEffect( async ()=>{
         try{
-        const response = await fetch(`http://137.184.224.203:5000/nlp/${props.symbol}`)
-        const respons2 = await fetch(`http://137.184.224.203:5000/stocks/${props.symbol}`)
+        const response = await fetch(`https://desolate-woodland-29384.herokuapp.com/nlp/${props.symbol}`)
+        const respons2 = await fetch(`https://desolate-woodland-29384.herokuapp.com/stocks/${props.symbol}`)
         const data = await response.json()
         const stock_info = await respons2.json()
         setMetaData(stock_info[0])
