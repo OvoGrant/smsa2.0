@@ -9,7 +9,7 @@ export const StockBar = (props) => {
         if(isAuthenticated) { 
             const id = user.sub
             console.log(id)
-            axios.post('https://desolate-woodland-29384.herokuapp.com/stocks',{
+            axios.post('https://desolate-woodland-29384.herokuapp.com/watchlist',{
                 user_id: id,
                 symbol:props.symbol
             })
