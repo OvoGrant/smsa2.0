@@ -22,7 +22,7 @@ export const Modal = (props) => {
     const handleRemove = () => {
         if(isAuthenticated) { 
             const id = user.sub
-            axios.delete('http://137.184.224.203:5000/watchlist/',{
+            axios.delete('https://desolate-woodland-29384.herokuapp.com/watchlist',{
                 data:{user_id: id,
                 symbol:props.symbol}
             })
