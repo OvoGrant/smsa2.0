@@ -21,7 +21,7 @@ export const Assets = (props) => {
      if(isAuthenticated){
 
         const id = user.sub;
-        const endpoint = 'https://desolate-woodland-29384.herokuapp.com/stocks/'+id;
+        const endpoint = 'https://desolate-woodland-29384.herokuapp.com/watchlist/'+id;
         fetch(endpoint)
         .then((response)=> response.json())
         .then((result)=> setWatchlist(result))
