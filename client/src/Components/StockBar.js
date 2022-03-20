@@ -19,6 +19,7 @@ export const StockBar = (props) => {
             .catch(function(error){
                 console.log(error)
             });
+
         }else{
             console.log("failure");
         }

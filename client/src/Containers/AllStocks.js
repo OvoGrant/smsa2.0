@@ -21,7 +21,7 @@ const AllStocks = (props) => {
     const [news,setNews] = useState([])
     useEffect(()=>{
         props.changeHeadding("All Stocks");
-        fetch("https://desolate-woodland-29384.herokuapp.com/stocks")
+        fetch("https://desolate-woodland-29384.herokuapp.com/stocks/")
         .then( response => response.json())
         .then( data => setAssets(data));
         

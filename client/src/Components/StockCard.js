@@ -10,8 +10,8 @@ export const StockCard = (props) => {
 
     useEffect( async ()=>{
         try{
-        const response = await fetch(`https://desolate-woodland-29384.herokuapp.com/nlp/${props.symbol}`)
         const respons2 = await fetch(`https://desolate-woodland-29384.herokuapp.com/stocks/${props.symbol}`)
+        const response = await fetch(`https://desolate-woodland-29384.herokuapp.com/nlp/${props.symbol}`)
         const data = await response.json()
         const stock_info = await respons2.json()
         setMetaData(stock_info[0])
@@ -25,7 +25,7 @@ export const StockCard = (props) => {
     return(  
         <div className={cardStyle} onClick={handleClick}> 
         <li>
-            <h1 className='text-center text-sm w-16 font-semibold text-white bg-red-600 border-2 rounded-lg'>{metaData.symbol}</h1>
+            <h1 className='text-center text-sm w-16 font-semibold text-white bg-red-600 border-2 rounded-lg'>{props.symbol}</h1>
             <h1 className="text-sm font-semibold text-left my-1 ">{metaData.full_name}</h1>
             <h2 className="text-left font-semibold mb-2">Public Opinion</h2>
             <p className={position == "BUY" ? 
